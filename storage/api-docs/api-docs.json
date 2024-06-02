@@ -1,0 +1,377 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Contacts documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "http://127.0.0.1:8000/api/": {},
+        "/api/items": {
+            "get": {
+                "tags": [
+                    "Contact"
+                ],
+                "summary": "List",
+                "description": "List",
+                "operationId": "baba8db50b62419a031e08cde2c31e1f",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": "1"
+                                                    },
+                                                    "FIO": {
+                                                        "type": "string",
+                                                        "example": "Аханов Я. О."
+                                                    },
+                                                    "company": {
+                                                        "type": "string",
+                                                        "example": "Future"
+                                                    },
+                                                    "phone": {
+                                                        "type": "string",
+                                                        "example": "+375336671210"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "akhanov.yaroslav@mail.ru"
+                                                    },
+                                                    "birthDate": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "2000-11-11",
+                                                        "nullable": true
+                                                    },
+                                                    "img": {
+                                                        "type": "string",
+                                                        "example": "http://127.0.0.1:8000/storage/img/0rouhfkiGe2RhUvaUTk03phA9paMMLYwgIV4Su6F.png",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Contact"
+                ],
+                "summary": "Create",
+                "operationId": "7eb1bcf8769903834849876559aba9f3",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "FIO": {
+                                                "type": "string",
+                                                "example": "Аханов Я. О."
+                                            },
+                                            "company": {
+                                                "type": "string",
+                                                "example": "Future"
+                                            },
+                                            "phone": {
+                                                "type": "integer",
+                                                "example": 375336671210
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "akhanov.yaroslav@mail.ru"
+                                            },
+                                            "birthDate": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "2000-11-11",
+                                                "nullable": true
+                                            },
+                                            "img": {
+                                                "type": "file",
+                                                "example": "image.png",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "FIO": {
+                                                    "type": "string",
+                                                    "example": "Аханов Я. О."
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "Future"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+375336671210"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "akhanov.yaroslav@mail.ru"
+                                                },
+                                                "birthDate": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2000-11-11",
+                                                    "nullable": true
+                                                },
+                                                "img": {
+                                                    "type": "string",
+                                                    "example": "http://127.0.0.1:8000/storage/img/0rouhfkiGe2RhUvaUTk03phA9paMMLYwgIV4Su6F.png",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/items/{item}": {
+            "get": {
+                "tags": [
+                    "Contact"
+                ],
+                "summary": "One contact",
+                "operationId": "36e656ca4bd25a4d55be791f9f336a30",
+                "parameters": [
+                    {
+                        "name": "contact",
+                        "in": "path",
+                        "description": "id of item",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "FIO": {
+                                                    "type": "string",
+                                                    "example": "Аханов Я. О."
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "Future",
+                                                    "nullable": true
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+375336671210"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "akhanov.yaroslav@mail.ru"
+                                                },
+                                                "birthDate": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2000-11-11",
+                                                    "nullable": true
+                                                },
+                                                "img": {
+                                                    "type": "string",
+                                                    "example": "http://127.0.0.1:8000/storage/img/0rouhfkiGe2RhUvaUTk03phA9paMMLYwgIV4Su6F.png",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Contact"
+                ],
+                "summary": "Update",
+                "operationId": "6b70b89a024e80f92fcf14ad1f2f332f",
+                "parameters": [
+                    {
+                        "name": "contact",
+                        "in": "path",
+                        "description": "id of item",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "FIO": {
+                                                "type": "string",
+                                                "example": "Аханов Я. О."
+                                            },
+                                            "company": {
+                                                "type": "string",
+                                                "example": "Future"
+                                            },
+                                            "phone": {
+                                                "type": "integer",
+                                                "example": 375336671210
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "akhanov.yaroslav@mail.ru"
+                                            },
+                                            "birthDate": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "2000-11-11",
+                                                "nullable": true
+                                            },
+                                            "img": {
+                                                "type": "file",
+                                                "example": "image.png",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "FIO": {
+                                                    "type": "string",
+                                                    "example": "Аханов Я. О."
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "Future",
+                                                    "nullable": true
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+375336671210"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "akhanov.yaroslav@mail.ru"
+                                                },
+                                                "birthDate": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2000-11-11",
+                                                    "nullable": true
+                                                },
+                                                "img": {
+                                                    "type": "string",
+                                                    "example": "http://127.0.0.1:8000/storage/img/0rouhfkiGe2RhUvaUTk03phA9paMMLYwgIV4Su6F.png",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Contact"
+                ],
+                "summary": "Delete contact",
+                "operationId": "cd30c036c855ebb8f84f968bd6bdf128",
+                "parameters": [
+                    {
+                        "name": "contact",
+                        "in": "path",
+                        "description": "id of item",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": "Контакт Аханов Ярослав Олегович удален"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
